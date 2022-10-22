@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://prove-ability.github.io/quiz"
+      : "",
 };
 
 module.exports = nextConfig;
