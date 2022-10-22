@@ -31,15 +31,16 @@ export default function ModalMain({ handleClose, text }: Props) {
   return (
     <Modal.Backdrop onClick={handleClose}>
       <motion.div
+        key="modal"
         onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
         className="modal orange-gradient z-10"
         variants={dropIn}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
       >
         <Modal.Text text={text} />
-        <Modal.Button onClick={handleClose} label="Close" />
+        <Modal.Button onClick={handleClose} label="닫기" />
       </motion.div>
     </Modal.Backdrop>
   );
