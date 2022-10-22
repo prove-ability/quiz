@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import Modal from "../../components/Modal/Modal";
+import Modal from "../../components/Modal";
 
 interface IQuiz {
   questions: string;
