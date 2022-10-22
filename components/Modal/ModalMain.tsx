@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
-import Backdrop from "./Modal/Backdrop";
-import ModalButton from "./Modal/ModalButton";
-import ModalText from "./Modal/ModalText";
+import Modal from ".";
 
-interface IProps {
+interface Props {
   handleClose: () => void;
   text: string;
 }
 
-export default function Modal({ handleClose, text }: IProps) {
+export default function ModalMain({ handleClose, text }: Props) {
   const dropIn = {
     hidden: {
       y: "-100vh",
@@ -31,7 +29,7 @@ export default function Modal({ handleClose, text }: IProps) {
   };
 
   return (
-    <Backdrop onClick={handleClose}>
+    <Modal.Backdrop onClick={handleClose}>
       <motion.div
         onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
         className="modal orange-gradient z-10"
@@ -40,9 +38,9 @@ export default function Modal({ handleClose, text }: IProps) {
         animate="visible"
         exit="exit"
       >
-        <ModalText text={text} />
-        <ModalButton onClick={handleClose} label="Close" />
+        <Modal.Text text={text} />
+        <Modal.Button onClick={handleClose} label="Close" />
       </motion.div>
-    </Backdrop>
+    </Modal.Backdrop>
   );
 }

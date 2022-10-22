@@ -1,10 +1,10 @@
 import React from "react";
 
-interface IProps {
+interface Props {
   text: string;
 }
 
-export default function ModalText({ text }: IProps) {
+export default function ModalText({ text }: Props) {
   return (
     <div className="modal-text">
       <h3>{text}</h3>

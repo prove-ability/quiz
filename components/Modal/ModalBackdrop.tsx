@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
-interface IProps {
+interface Props {
   children: React.ReactNode;
   onClick: () => void;
 }
 
-export default function Backdrop({ children, onClick }: IProps) {
+export default function ModalBackdrop({ children, onClick }: Props) {
   return (
     <motion.div
       onClick={onClick}

@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import PrefixedLink from "../components/PrefixedLink";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +14,9 @@ const Home: NextPage = () => {
       <main className="flex justify-center items-center">
         <div>
           <h1 className="text-4xl font-bold text-center mb-4">단어 퀴즈</h1>
-          <div>사용</div>
+          <div>
+            <PrefixedLink href="/quizs/default">퀴즈 이동!</PrefixedLink>
+          </div>
         </div>
       </main>
     </>
