@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import Modal from "../components/Modal";
 import { quizs } from "../components/Quizs/constants";
 import Quizs from "../components/Quizs";
+import { shuffle } from "../components/Quizs/utils";
 
 const Home: NextPage = () => {
   const { answer, questions, multipleChoice } = quizs[0];
@@ -24,11 +25,20 @@ const Home: NextPage = () => {
           setModalText("정답");
         } else {
           setModalText("실패");
+          setShuffledMultipleChoice(shuffle(multipleChoice));
         }
         openModal();
       }, 300);
     }
-  }, [clickedInput, answer]);
+  }, [clickedInput, answer, multipleChoice]);
+
+  const [shuffledMultipleChoice, setShuffledMultipleChoice] = useState<
+    string[]
+  >([]);
+
+  useEffect(() => {
+    setShuffledMultipleChoice(shuffle(multipleChoice));
+  }, [multipleChoice]);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [modalText, setModalText] = useState("");
@@ -55,7 +65,7 @@ const Home: NextPage = () => {
           answerLength={answer.length}
         />
         <Quizs.MultipleChoice
-          multipleChoice={multipleChoice}
+          multipleChoice={shuffledMultipleChoice}
           handleClickedInputChange={handleClickedInputChange}
         />
       </Quizs>

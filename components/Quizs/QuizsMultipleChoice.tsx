@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { IQuiz } from "./constants";
 import { container, item } from "./styles";
-import { shuffle } from "./utils";
 
 interface Props {
   multipleChoice: IQuiz["multipleChoice"];
@@ -19,7 +18,7 @@ export default function QuizsMultipleChoice({
       initial="hidden"
       animate="visible"
     >
-      {shuffle(multipleChoice).map((syllable, id) => (
+      {multipleChoice.map((syllable, id) => (
         <motion.li
           key={id}
           className="h-[50px] bg-amber-700/20 rounded-md flex items-center justify-center hover:cursor-pointer"

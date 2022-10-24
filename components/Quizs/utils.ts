@@ -1,4 +1,4 @@
-export function shuffle(array: string[]) {
+export function shuffle(array: string[]): string[] {
   for (let index = array.length - 1; index > 0; index--) {
     // 무작위 index 값을 만든다. (0 이상의 배열 길이 값)
     const randomPosition = Math.floor(Math.random() * (index + 1));
