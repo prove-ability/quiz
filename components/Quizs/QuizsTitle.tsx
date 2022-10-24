@@ -5,5 +5,5 @@ interface Props {
 }
 
 export default function QuizsTitle({ title }: Props) {
-  return <h1 className="text-4xl font-bold text-center mb-4">{title}</h1>;
+  return <h1 className="text-4xl font-bold text-center">{title}</h1>;
 }

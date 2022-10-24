@@ -12,6 +12,7 @@ const Home: NextPage = () => {
 
   const [clickedInput, setClickedInput] = useState<string[]>([]);
   const handleClickedInputChange = (e: React.MouseEvent<HTMLLIElement>) => {
+    if (clickedInput.length === answer.length) return;
     const value = (e.target as HTMLElement).innerText;
     setClickedInput((state) => [...state, value]);
   };
@@ -25,14 +26,16 @@ const Home: NextPage = () => {
           setModalText("실패");
         }
         openModal();
-        setClickedInput([]);
-      }, 500);
+      }, 300);
     }
   }, [clickedInput, answer]);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [modalText, setModalText] = useState("");
-  const closeModal = () => setModalVisible(false);
+  const closeModal = () => {
+    setModalVisible(false);
+    setClickedInput([]);
+  };
   const openModal = () => setModalVisible(true);
   return (
     <>
