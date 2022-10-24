@@ -52,7 +52,7 @@ const Home: NextPage = () => {
       <Head>
         <title>퀴즈</title>
         <meta name="description" content="퀴즈 !!" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/quiz/favicon.ico?" />
       </Head>
       <AnimatePresence initial={false} onExitComplete={() => null} mode="wait">
         {modalVisible && <Modal text={modalText} handleClose={closeModal} />}
